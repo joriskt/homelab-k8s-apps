@@ -5,10 +5,15 @@ metadata:
   namespace: argocd
 spec:
   project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: false
   source:
     repoURL: https://github.com/joriskt/homelab-k8s-apps.git
     targetRevision: HEAD
-    path: hello/base # Overriden per env to replace /base with /overlays/{env}
+    path: hello/overlays/staging
   destination:
     server: https://kubernetes.default.svc
     namespace: hello

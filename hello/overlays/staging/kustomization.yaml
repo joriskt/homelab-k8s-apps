@@ -5,7 +5,7 @@ resources:
   - ../../base
 
 patches:
-  - path: argo.yaml
+  - path: patch-host.json
     target:
-      kind: Application
-      name: hello
+      kind: Ingress
+      name: hello-ingress
