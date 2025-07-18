@@ -12,7 +12,7 @@ spec:
       allowEmpty: false
     syncOptions:
     - CreateNamespace=true
-    - ApplyutOfSyncOnly=true
+    - ApplyOutOfSyncOnly=true
   source:
     repoURL: https://github.com/joriskt/homelab-k8s-apps.git
     targetRevision: HEAD
