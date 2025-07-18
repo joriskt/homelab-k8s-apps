@@ -6,6 +6,7 @@ metadata:
   labels:
     app.kubernetes.io/name: hello-ingress
 spec:
+  ingressClassName: nginx
   rules:
   - host: hello.joris.me
     http:
