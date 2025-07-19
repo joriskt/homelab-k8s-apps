@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: bookcstack-db-pvc
+  name: bookstack-db-pvc
   annotations:
     # Do NOT accidentally delete the database:
     argocd.argoproj.io/sync-options: Delete=false
