@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bookstack-db
+spec:
+  selector:
+    matchLabels:
+      app: bookstack-db
+  template:
+    metadata:
+      labels:
+        app: bookstack-db
+    spec:
+      containers:
+      - name: bookstack-db
+        image: mariadb:11.4.5
+        resources:
+          requests:
+            cpu: 100m
+            memory: 256Mi
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        ports:
+          - containerPort: 5432
+        volumeMounts:
+          - name: bookstack-db-storage
+            mountPath: /config/databases/
+    volumes:
+      - name: bookstack-db-storage
+        persistentVolumeClaim: 
+          claimName: bookstack-db-pvc
