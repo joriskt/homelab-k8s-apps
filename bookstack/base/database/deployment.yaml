@@ -26,7 +26,7 @@ spec:
         volumeMounts:
           - name: bookstack-db-storage
             mountPath: /config/databases/
-    volumes:
-      - name: bookstack-db-storage
-        persistentVolumeClaim: 
-          claimName: bookstack-db-pvc
+      volumes:
+        - name: bookstack-db-storage
+          persistentVolumeClaim: 
+            claimName: bookstack-db-pvc
