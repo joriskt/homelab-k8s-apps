@@ -5,7 +5,7 @@ $ k create secret generic <name> --dry-run=client --from-file=/dev/stdin -o yaml
 
 - Secret converteren naar SealedSecret
 ```bash
-$ kubeseal -f secret.yaml -o yaml > sealedsecret.yaml
+$ kubeseal --controller-namespace sealed-secrets -n <namespace> -f secret.yaml -o yaml > sealedsecret.yaml
 ```
 
 Het bestand `sealedsecret.yaml` is nu veilig te gebruiken.
