@@ -28,7 +28,7 @@ spec:
             valueFrom:
               secretKeyRef:
                 name: bookstack-db-secret
-                key: mysql_root_password
+                key: MYSQL_ROOT_PASSWORD
           - name: MYSQL_DATABASE
             value: bookstack
           - name: MYSQL_USER
@@ -37,7 +37,7 @@ spec:
             valueFrom:
               secretKeyRef:
                 name: bookstack-db-secret
-                key: mysql_password
+                key: MYSQL_PASSWORD
           - name: TZ
             value: Europe/Amsterdam
         volumeMounts:
