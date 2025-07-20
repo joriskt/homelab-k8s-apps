@@ -23,6 +23,23 @@ spec:
             cpu: "500m"
         ports:
           - containerPort: 5432
+        env:
+          - name: MYSQL_ROOT_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: bookstack-db-secret
+                key: mysql_root_password
+          - name: MYSQL_DATABASE
+            value: bookstack
+          - name: MYSQL_USER
+            value: bookstack
+          - name: MYSQL_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: bookstack-db-secret
+                key: mysql_password
+          - name: TZ
+            value: Europe/Amsterdam
         volumeMounts:
           - name: bookstack-db-storage
             mountPath: /config/databases/
