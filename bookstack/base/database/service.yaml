@@ -6,5 +6,6 @@ spec:
   selector:
     app: bookstack-db
   ports:
-  - port: 5432
-    targetPort: 5432
+  - name: mysql
+    port: 3306
+    targetPort: mysql
