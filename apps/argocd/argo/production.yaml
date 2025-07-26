@@ -16,7 +16,7 @@ spec:
   source:
     repoURL: https://github.com/joriskt/homelab-k8s-apps.git
     targetRevision: HEAD
-    path: apps/argocd/overlays/staging
+    path: apps/argocd/overlays/production
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
