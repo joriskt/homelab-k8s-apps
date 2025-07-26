@@ -16,7 +16,7 @@ spec:
   source:
     repoURL: https://github.com/joriskt/homelab-k8s-apps.git
     targetRevision: HEAD
-    path: hello/overlays/staging
+    path: apps/hello/overlays/staging
   destination:
     server: https://kubernetes.default.svc
     namespace: hello
