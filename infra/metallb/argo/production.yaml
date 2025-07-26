@@ -19,9 +19,9 @@ spec:
     - CreateNamespace=true
     - ApplyOutOfSyncOnly=true
   source:
-    repoURL: https://github.com/joriskt/homelab-k8s-infra.git
+    repoURL: https://github.com/joriskt/homelab-k8s-apps.git
     targetRevision: HEAD
-    path: metallb/overlays/production
+    path: infra/metallb/overlays/production
   destination:
     server: https://kubernetes.default.svc
     namespace: metallb-system
