@@ -21,7 +21,7 @@ spec:
   source:
     repoURL: https://github.com/joriskt/homelab-k8s-apps.git
     targetRevision: HEAD
-    path: bookstack/overlays/staging
+    path: apps/bookstack/overlays/staging
   destination:
     server: https://kubernetes.default.svc
     namespace: bookstack
