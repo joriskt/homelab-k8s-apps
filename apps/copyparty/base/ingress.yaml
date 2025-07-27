@@ -5,6 +5,7 @@ metadata:
   labels:
     app.kubernetes.io/name: copyparty-ingress
 spec:
+  ingressClassName: nginx
   rules:
   - host: patch-me.example.com
     http:
