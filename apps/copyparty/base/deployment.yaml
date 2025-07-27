@@ -25,9 +25,14 @@ spec:
             - containerPort: 3923
               name: http
           volumeMounts:
-            - mountPath: /d
-              name: copyparty-storage
+            - mountPath: /w
+              name: copyparty-data
+            - mountPath: /cfg
+              name: copyparty-config
       volumes:
-        - name: copyparty-storage
+        - name: copyparty-data
           persistentVolumeClaim:
-            claimName: copyparty-pvc
+            claimName: copyparty-data-pvc
+        - name: copyparty-config
+          persistentVolumeClaim:
+            claimName: copyparty-config-pvc

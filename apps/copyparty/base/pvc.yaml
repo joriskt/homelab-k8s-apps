@@ -1,12 +1,25 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: copyparty-pvc
+  name: copyparty-data-pvc
 spec:
   storageClassName: ceph-csi-cephfs
   resources:
     requests:
       storage: 50Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: copyparty-config-pvc
+spec:
+  storageClassName: ceph-csi-cephfs
+  resources:
+    requests:
+      storage: 1Gi
   volumeMode: Filesystem
   accessModes:
     - ReadWriteOnce

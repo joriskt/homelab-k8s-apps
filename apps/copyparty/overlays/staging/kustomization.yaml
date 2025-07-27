@@ -8,6 +8,6 @@ patches:
   - target:
       name: copyparty-ingress
     patch: |-
-      op: replace
-      path: /spec/rules/0/host
-      value: f.staging.joris.me
+      - op: replace
+        path: /spec/rules/0/host
+        value: f.staging.joris.me
