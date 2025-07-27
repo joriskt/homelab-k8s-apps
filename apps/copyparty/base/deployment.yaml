@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: copyparty
+spec:
+  selector:
+    matchLabels:
+      app: copyparty
+  template:
+    metadata:
+      labels:
+        app: copyparty
+    spec:
+      containers:
+        - name: copyparty
+          image: ghcr.io/9001/copyparty-ac:1.18.4
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "256Mi"
+            limits:
+              memory: "1024Mi"
+              cpu: "2000m"
+          ports:
+            - containerPort: 3923
+              name: http
+          volumeMounts:
+            - mountPath: /d
+              name: copyparty-storage
+      volumes:
+        - name: copyparty-storage
+          persistentVolumeClaim:
+            claimName: copyparty-pvc
