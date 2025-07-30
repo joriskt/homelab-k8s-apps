@@ -1,0 +1,15 @@
+# ntfy config file
+
+# Template: https://github.com/binwiederhier/ntfy/blob/main/server/server.yml
+base-url: "ntfy.joris.me"
+behind-proxy: true
+
+proxy-forwarded-header: "X-Forwarded-For"
+proxy-trusted-hosts: "10.0.0.0/8"
+
+cache-file: "/var/cache/ntfy/cache.db"
+cache-duration: "24h"
+
+attachment-cache-dir: "/var/cache/ntfy/attachments"
+attachment-total-size-limit: "9G" # 1 GiB left for cache DB
+attachment-expiry-duration: "12h"

@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ntfy-app
+spec:
+  selector:
+    matchLabels:
+      app: ntfy-app
+  template:
+    metadata:
+      labels:
+        app: ntfy-app
+    spec:
+      containers:
+        - name: ntfy-app
+          image: binwiederhier/ntfy:v2.13
+          args: ["serve"]
+          env:
+            - name: 
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              memory: "512Mi"
+              cpu: "1000m"
+          ports:
+            - containerPort: 80
+              name: http
+          volumeMounts:
+            - mountPath: /var/cache/ntfy
+              name: ntfy-cache
+            - mountPath: /etc/ntfy
+              name: ntfy-config
+              readOnly: true
+      volumes:
+        - name: ntfy-cache
+          persistentVolumeClaim:
+            claimName: ntfy-cache-pvc
+        - name: ntfy-config
+          configMap:
+            name: ntfy-config

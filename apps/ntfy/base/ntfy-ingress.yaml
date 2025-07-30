@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ntfy-ingress
+  labels:
+    app.kubernetes.io/name: ntfy-ingress
+spec:
+  rules:
+  - host: ntfy.joris.me
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: ntfy-svc
+            port: 
+              number: 80
+              name: http
