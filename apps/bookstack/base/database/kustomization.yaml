@@ -2,7 +2,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-  - deployment.yaml
-  - service.yaml
-  - volume.yaml
-  - sealedsecret.yaml
+  - bookstack-db-deploy.yaml
+  - bookstack-db-pvc.yaml
+  - bookstack-db-ss.yaml
+  - bookstack-db-svc.yaml
