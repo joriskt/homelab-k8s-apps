@@ -22,7 +22,7 @@ spec:
   #     - www.example.com
   #     secretName: example-tls
 
----
+#---
 # # If TLS is enabled for the Ingress, a Secret containing the certificate and key must also be provided:
 # apiVersion: v1
 # kind: Secret
