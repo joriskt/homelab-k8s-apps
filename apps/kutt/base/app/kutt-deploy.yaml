@@ -44,6 +44,11 @@ spec:
               secretKeyRef:
                 name: kutt-db-cluster-app
                 key: password
+          - name: DB_NAME
+            valueFrom:
+              secretKeyRef:
+                name: kutt-db-cluster-app
+                key: dbname
           - name: SITE_NAME
             valueFrom:
               configMapKeyRef:
