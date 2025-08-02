@@ -18,6 +18,7 @@ spec:
     syncOptions:
     - CreateNamespace=false
     - ApplyOutOfSyncOnly=true
+    - ServerSideApply=true
   source:
     repoURL: https://github.com/joriskt/homelab-k8s-apps.git
     targetRevision: HEAD
