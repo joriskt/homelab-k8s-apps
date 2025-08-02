@@ -25,4 +25,4 @@ spec:
     path: infra/cloudnative-pg/overlays/staging
   destination:
     server: https://kubernetes.default.svc
-    namespace: cloudnative-pg
+    namespace: cnpg-system
