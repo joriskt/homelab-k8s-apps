@@ -27,22 +27,22 @@ spec:
           - name: DB_HOST
             valueFrom:
               secretKeyRef:
-                name: kutt-pg-cluster-app
+                name: kutt-db-cluster-app
                 key: host
           - name: DB_PORT
             valueFrom:
               secretKeyRef:
-                name: kutt-pg-cluster-app
+                name: kutt-db-cluster-app
                 key: port
           - name: DB_USER
             valueFrom:
               secretKeyRef:
-                name: kutt-pg-cluster-app
+                name: kutt-db-cluster-app
                 key: username
           - name: DB_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: kutt-pg-cluster-app
+                name: kutt-db-cluster-app
                 key: password
           - name: SITE_NAME
             valueFrom:
