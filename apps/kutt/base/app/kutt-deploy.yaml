@@ -22,6 +22,11 @@ spec:
             memory: "512Mi"
             cpu: "500m"
         env:
+          - name: JWT_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: config-app-secret
+                key: JWT_SECRET
           - name: DB_CLIENT
             value: "pg"
           - name: DB_HOST
