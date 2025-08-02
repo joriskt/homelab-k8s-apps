@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kutt-app
+spec:
+  selector:
+    matchLabels:
+      app: kutt-app
+  template:
+    metadata:
+      labels:
+        app: kutt-app
+    spec:
+      containers:
+      - name: kutt-app
+        image: kutt/kutt:v3.2.3
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "256Mi"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        env:
+          - name: DB_CLIENT
+            value: "pg"
+          - name: DB_HOST
+            valueFrom:
+              secretKeyRef:
+                name: kutt-pg-cluster-app
+                key: host
+          - name: DB_PORT
+            valueFrom:
+              secretKeyRef:
+                name: kutt-pg-cluster-app
+                key: port
+          - name: DB_USER
+            valueFrom:
+              secretKeyRef:
+                name: kutt-pg-cluster-app
+                key: username
+          - name: DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: kutt-pg-cluster-app
+                key: password
+          - name: SITE_NAME
+            valueFrom:
+              configMapKeyRef:
+                name: kutt-cfg
+                key: SITE_NAME
+          - name: DEFAULT_DOMAIN
+            valueFrom:
+              configMapKeyRef:
+                name: kutt-cfg
+                key: DEFAULT_DOMAIN
+        ports:
+        - containerPort: 3000
+          name: http

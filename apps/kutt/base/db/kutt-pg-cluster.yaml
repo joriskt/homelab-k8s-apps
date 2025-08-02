@@ -1,0 +1,12 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: kutt-db-cluster
+spec:
+  instances: 2
+  storage:
+    storageClass: ceph-csi-rbd
+    size: 1Gi
+  
+  # staging only:
+  enablePDB: false
