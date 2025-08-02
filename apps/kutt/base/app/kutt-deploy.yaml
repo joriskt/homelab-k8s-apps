@@ -25,7 +25,7 @@ spec:
           - name: JWT_SECRET
             valueFrom:
               secretKeyRef:
-                name: config-app-secret
+                name: kutt-app-secret
                 key: JWT_SECRET
           - name: DB_CLIENT
             value: "pg"
