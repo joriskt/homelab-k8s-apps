@@ -57,12 +57,12 @@ spec:
           - name: SITE_NAME
             valueFrom:
               configMapKeyRef:
-                name: kutt-cfg
+                name: kutt-app-cfg
                 key: SITE_NAME
           - name: DEFAULT_DOMAIN
             valueFrom:
               configMapKeyRef:
-                name: kutt-cfg
+                name: kutt-app-cfg
                 key: DEFAULT_DOMAIN
         ports:
         - containerPort: 3000

@@ -3,5 +3,6 @@ kind: Kustomization
 
 resources:
   - ../../base
-  - kutt-cfg-staging.yaml
+  - kutt-app-cfg-staging.yaml
   - kutt-ingress-staging.yaml
+  # Secret moet met de hand gedeployed worden.
