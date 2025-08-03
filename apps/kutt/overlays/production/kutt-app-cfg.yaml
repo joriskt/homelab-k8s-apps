@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: kutt-cfg
+  name: kutt-app-cfg
 data:
-  SITE_NAME: go.joris.me
+  SITE_NAME: Go.Joris
   DEFAULT_DOMAIN: go.joris.me

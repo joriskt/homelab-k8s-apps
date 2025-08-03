@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kutt
+  namespace: argocd
+spec:
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: false
+    syncOptions:
+    - CreateNamespace=true
+    - ApplyOutOfSyncOnly=true
+  source:
+    repoURL: https://github.com/joriskt/homelab-k8s-apps.git
+    targetRevision: HEAD
+    path: apps/kutt/overlays/production
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: kutt
