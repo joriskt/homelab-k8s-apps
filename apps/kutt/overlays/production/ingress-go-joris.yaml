@@ -5,6 +5,7 @@ metadata:
   labels:
     app.kubernetes.io/name: kutt-ingress-joris
 spec:
+  ingressClassName: nginx
   rules:
   - host: go.joris.me
     http:
