@@ -14,7 +14,7 @@ patches:
         path: /spec/replicas
         value: 2
     target:
-      name: kutt-app-deploy
+      name: kutt-app
       kind: Deployment
 
   # Set DB replicas to 3
