@@ -10,18 +10,18 @@ resources:
 patches:
   # Set app replicas to 2
   - patch: |-
-      op: add
-      path: /spec/replicas
-      value: 2
+      - op: add
+        path: /spec/replicas
+        value: 2
     target:
       name: kutt-app-deploy
       kind: Deployment
 
   # Set DB replicas to 3
   - patch: |-
-      op: replace
-      path: /spec/instances
-      value: 3
+      - op: replace
+        path: /spec/instances
+        value: 3
     target:
       name: kutt-db-cluster
       kind: Cluster
