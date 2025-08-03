@@ -3,6 +3,6 @@ kind: Kustomization
 
 resources:
   - ../../base
-  - kutt-cfg.yaml
+  - kutt-app-cfg.yaml
   - ingress-go-joris.yaml
   - ingress-08.yaml
