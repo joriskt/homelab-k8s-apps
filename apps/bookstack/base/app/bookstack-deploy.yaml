@@ -11,6 +11,16 @@ spec:
       labels:
         app: bookstack
     spec:
+      # Max one pod per node.
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - topologyKey: kubernetes.io/hostname
+              weight: 100
+              labelSelector:
+                matchLabels:
+                  app: bookstack
+
       containers:
       - name: bookstack
         image: lscr.io/linuxserver/bookstack:25.05.2

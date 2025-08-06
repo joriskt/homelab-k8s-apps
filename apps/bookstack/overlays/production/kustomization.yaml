@@ -15,3 +15,12 @@ patches:
       - op: replace
         path: /spec/rules/0/host
         value: wiki.prod.joris.me
+  - target:
+      kind: Deployment
+      name: bookstack
+    patch: |-
+      - op: add
+        path: /spec/replicas
+        value: 1
+    # Kan nog niet HA, daarvoor moet de PVC ReadWriteMany zijn en logs e.d. in een tmpfs landen
+    # ipv op de PVC.
