@@ -3,6 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: bookstack-pvc
 spec:
+  storageClassName: ceph-csi-cephfs
   resources:
     requests:
       storage: 10Gi
