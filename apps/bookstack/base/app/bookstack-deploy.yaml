@@ -112,5 +112,12 @@ spec:
                 name: bookstack-cfg
                 key: APP_VIEWS_BOOKS
         ports:
-        - containerPort: 6875
-          name: http
+          - containerPort: 6875
+            name: http
+        volumeMounts:
+          - mountPath: "/config"
+            name: data
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: bookstack-pvc
