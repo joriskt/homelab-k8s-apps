@@ -129,6 +129,18 @@ spec:
         ports:
           - containerPort: 80
             name: http
+        startupProbe:
+          httpGet:
+            port: http
+            path: /status
+        readinessProbe:
+          httpGet:
+            port: http
+            path: /status
+        livenessProbe:
+          httpGet:
+            port: http
+            path: /status
         volumeMounts:
           - mountPath: "/config"
             name: data
