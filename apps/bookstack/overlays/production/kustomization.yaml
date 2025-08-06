@@ -3,7 +3,7 @@ kind: Kustomization
 
 resources:
   - ../../base
-  - bookstack-cfg-staging.yaml
+  - bookstack-cfg.yaml
 
 patches:
   - target:
