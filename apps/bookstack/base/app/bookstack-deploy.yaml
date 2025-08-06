@@ -112,7 +112,7 @@ spec:
                 name: bookstack-cfg
                 key: APP_VIEWS_BOOKS
         ports:
-          - containerPort: 6875
+          - containerPort: 80
             name: http
         volumeMounts:
           - mountPath: "/config"
