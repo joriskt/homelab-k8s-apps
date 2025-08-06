@@ -9,4 +9,3 @@ patches:
     target:
       kind: Ingress
       name: hello-ingress
-  - path: patch-ingress-auth.yaml
