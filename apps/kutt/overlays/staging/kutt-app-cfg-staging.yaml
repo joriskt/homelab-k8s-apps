@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: kutt-cfg
+  name: kutt-app-cfg
 data:
   SITE_NAME: go.staging.joris.me
   DEFAULT_DOMAIN: go.staging.joris.me
