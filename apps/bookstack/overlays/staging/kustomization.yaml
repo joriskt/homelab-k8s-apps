@@ -11,5 +11,5 @@ patches:
       name: bookstack-ig
     patch: |-
       - op: replace
-        path: /spec/rules/0/host,
+        path: /spec/rules/0/host
         value: wiki.staging.joris.me
