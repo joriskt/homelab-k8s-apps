@@ -49,6 +49,16 @@ spec:
                 key: MYSQL_PASSWORD
           - name: DB_DATABASE
             value: "bookstack"
+          - name: CACHE_DRIVER
+            valueFrom:
+              configMapKeyRef:
+                name: bookstack-cfg
+                key: CACHE_DRIVER
+          - name: SESSION_DRIVER
+            valueFrom:
+              configMapKeyRef:
+                name: bookstack-cfg
+                key: SESSION_DRIVER
           - name: AUTH_METHOD
             value: "oidc"
           - name: AUTH_AUTO_INITIATE
