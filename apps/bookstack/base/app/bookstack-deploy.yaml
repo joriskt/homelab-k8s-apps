@@ -27,6 +27,11 @@ spec:
               secretKeyRef:
                 name: bookstack-secret
                 key: BOOKSTACK_APP_KEY
+          - name: APP_URL
+            valueFrom:
+              configMapKeyRef:
+                name: bookstack-cfg
+                key: APP_URL
           - name: PUID
             value: "1000"
           - name: PGID

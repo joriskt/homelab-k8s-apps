@@ -73,5 +73,19 @@ $ k exec -it -n bookstack pod/$POD -- /bin/sh
 # Binnen de pod, gebruik autocomplete om te checken of deze map en submappen bestaan:
 $ cd config/www/uploads/images/drawio
 
-# Zo ja is alles gelukt!
+# Zo ja is de restore gelukt.
+```
+
+### URL aanpassen
+
+Dit is nodig als je een prod backup naar staging hebt gekopieerd.
+
+```bash
+
+# Open een terminal in de pod:
+$ k exec -it -n bookstack pod/$POD -- /bin/sh
+
+# Update de URLs in de database:
+$ php /app/www/artisan bookstack:update-url https://wiki.joris.me https://wiki.staging.joris.me/
+
 ```
