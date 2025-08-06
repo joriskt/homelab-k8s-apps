@@ -1,13 +1,13 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: bookstack-ig
+  name: bookstack-ig-prod
   labels:
-    app.kubernetes.io/name: bookstack-ig
+    app.kubernetes.io/name: bookstack-ig-prod
 spec:
   ingressClassName: nginx
   rules:
-  - host: wiki.joris.me
+  - host: wiki.prod.joris.me
     http:
       paths:
       - pathType: Prefix

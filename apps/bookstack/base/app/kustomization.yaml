@@ -3,6 +3,5 @@ kind: Kustomization
 
 resources:
   - bookstack-deploy.yaml
-  - bookstack-ingress.yaml
   - bookstack-pvc.yaml
   - bookstack-svc.yaml
