@@ -21,5 +21,96 @@ spec:
           limits:
             cpu: "750m"
             memory: "1024Mi"
+        env:
+          - name: APP_KEY
+            valueFrom:
+              secretKeyRef:
+                name: bookstack-secret
+                key: BOOKSTACK_APP_KEY
+          - name: PUID
+            value: "1000"
+          - name: PGID
+            value: "1000"
+          - name: DB_HOST
+            value: "bookstack-db-svc.bookstack.svc.cluster.local"
+          - name: DB_PORT
+            value: "3306"
+          - name: DB_USER
+            value: "bookstack"
+          - name: DB_PASS
+            valueFrom:
+              secretKeyRef:
+                name: bookstack-db-secret
+                key: MYSQL_PASSWORD
+          - name: DB_DATABASE
+            value: "bookstack"
+          - name: AUTH_METHOD
+            value: "oidc"
+          - name: AUTH_AUTO_INITIATE
+            valueFrom:
+              configMapKeyRef:
+                name: bookstack-cfg
+                key: AUTH_AUTO_INITIATE
+          - name: OIDC_NAME
+            valueFrom:
+              configMapKeyRef:
+                name: bookstack-cfg
+                key: OIDC_NAME
+          - name: OIDC_DISPLAY_NAME_CLAIMS
+            valueFrom:
+              configMapKeyRef:
+                name: bookstack-cfg
+                key: OIDC_DISPLAY_NAME_CLAIMS
+          - name: OIDC_CLIENT_ID
+            valueFrom:
+              secretKeyRef:
+                name: bookstack-secret
+                key: OIDC_CLIENT_ID
+          - name: OIDC_CLIENT_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: bookstack-secret
+                key: OIDC_CLIENT_SECRET
+          - name: OIDC_ISSUER
+            valueFrom:
+              configMapKeyRef:
+                name: bookstack-cfg
+                key: OIDC_ISSUER
+          - name: OIDC_ISSUER_DISCOVER
+            valueFrom:
+              configMapKeyRef:
+                name: bookstack-cfg
+                key: OIDC_ISSUER_DISCOVER
+          - name: OIDC_USER_TO_GROUPS
+            valueFrom:
+              configMapKeyRef:
+                name: bookstack-cfg
+                key: OIDC_USER_TO_GROUPS
+          - name: OIDC_GROUPS_CLAIM
+            valueFrom:
+              configMapKeyRef:
+                name: bookstack-cfg
+                key: OIDC_GROUPS_CLAIM
+          - name: OIDC_REMOVE_FROM_GROUPS
+            valueFrom:
+              configMapKeyRef:
+                name: bookstack-cfg
+                key: OIDC_REMOVE_FROM_GROUPS
+          - name: OIDC_DUMP_USER_DETAILS
+            valueFrom:
+              configMapKeyRef:
+                name: bookstack-cfg
+                key: OIDC_DUMP_USER_DETAILS
+          - name: APP_DEFAULT_DARK_MODE
+            valueFrom:
+              configMapKeyRef:
+                name: bookstack-cfg
+                key: APP_DEFAULT_DARK_MODE
+          - name: APP_VIEWS_BOOKS
+            valueFrom:
+              configMapKeyRef:
+                name: bookstack-cfg
+                key: APP_VIEWS_BOOKS
         ports:
         - containerPort: 80
+          name: http

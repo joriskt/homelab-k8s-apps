@@ -3,6 +3,13 @@ kind: Kustomization
 
 resources:
   - ../../base
-  # - app
+  - bookstack-cfg-staging.yaml
 
-patches: []
+patches:
+  - target:
+      kind: Ingress
+      name: bookstack-ig
+    patch: |-
+      - op: replace
+        path: /spec/rules/0/host,
+        value: wiki.staging.joris.me
