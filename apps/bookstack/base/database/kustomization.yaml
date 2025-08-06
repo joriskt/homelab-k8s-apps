@@ -4,5 +4,5 @@ kind: Kustomization
 resources:
   - bookstack-db-deploy.yaml
   - bookstack-db-pvc.yaml
-  - bookstack-db-ss.yaml
+  # - bookstack-db-secret.yaml -- SOPS decrypt & apply manually
   - bookstack-db-svc.yaml
