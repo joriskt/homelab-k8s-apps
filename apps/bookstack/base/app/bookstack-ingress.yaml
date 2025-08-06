@@ -15,5 +15,5 @@ spec:
         backend:
           service:
             name: bookstack-svc
-            port: 
-              number: 80
+            port:
+              name: http
