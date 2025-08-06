@@ -35,9 +35,9 @@ spec:
             value: "bookstack-db-svc.bookstack.svc.cluster.local"
           - name: DB_PORT
             value: "3306"
-          - name: DB_USER
+          - name: DB_USERNAME
             value: "bookstack"
-          - name: DB_PASS
+          - name: DB_PASSWORD
             valueFrom:
               secretKeyRef:
                 name: bookstack-db-secret
@@ -112,5 +112,5 @@ spec:
                 name: bookstack-cfg
                 key: APP_VIEWS_BOOKS
         ports:
-        - containerPort: 80
+        - containerPort: 6875
           name: http
