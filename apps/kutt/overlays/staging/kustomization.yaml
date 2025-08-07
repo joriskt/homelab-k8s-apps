@@ -6,3 +6,13 @@ resources:
   - kutt-app-cfg-staging.yaml
   - kutt-ingress-staging.yaml
   # Secret moet met de hand gedeployed worden.
+
+patches:
+  # Disable PDB on staging
+  - target:
+      kind: Cluster
+      name: kutt-db-cluster
+    patch: |-
+      - op: add
+        path: /spec/enablePDB
+        value: false
