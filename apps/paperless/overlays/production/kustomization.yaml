@@ -20,5 +20,5 @@ patches:
       name: postgres-cluster
     patch: |-
       - op: replace
-        path: /spec/replicas
+        path: /spec/instances
         value: 3
