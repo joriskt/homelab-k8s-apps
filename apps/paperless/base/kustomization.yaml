@@ -6,5 +6,5 @@ resources:
   - tika
   - postgres
   - dragonfly
-  # - paperless
+  - paperless
 

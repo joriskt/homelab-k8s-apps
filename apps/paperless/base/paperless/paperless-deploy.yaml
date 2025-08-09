@@ -1,0 +1,77 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: paperless
+spec:
+  selector:
+    matchLabels:
+      app: paperless
+  template:
+    metadata:
+      labels:
+        app: paperless
+    spec:
+      containers:
+        - name: paperless
+          image: ghcr.io/paperless-ngx/paperless-ngx:latest
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          env:
+
+            # Redis
+            - name: PAPERLESS_REDIS
+              value: redis://dragonfly.paperless.svc.cluster.local:$(DRAGONFLY_SERVICE_PORT_REDIS)
+            
+            # Database
+            - name: PAPERLESS_DBHOST
+              value: postgres-cluster-rw.paperless.svc.cluster.local
+            - name: PAPERLESS_DBENGINE
+              value: postgresql
+            - name: PAPERLESS_DBPORT
+              value: $(POSTGRES_CLUSTER_RW_SERVICE_PORT_POSTGRES)
+            - name: PAPERLESS_DBNAME
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-cluster-app
+                  key: dbname
+            - name: PAPERLESS_DBUSER
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-cluster-app
+                  key: user
+            - name: PAPERLESS_DBPASS
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-cluster-app
+                  key: password
+
+            # Tika/Gotenberg
+            - name: PAPERLESS_TIKA_ENABLED
+              value: "1"
+            - name: PAPERLESS_TIKA_GOTENBERG_ENDPOINT
+              value: http://gotenberg.paperless.svc.cluster.local:$(GOTENBERG_SERVICE_PORT_HTTP)
+            - name: PAPERLESS_TIKA_ENDPOINT
+              value: http://tika.paperless.svc.cluster.local:$(TIKA_SERVICE_PORT_HTTP)
+            
+          ports:
+            - containerPort: 8000
+              name: http
+          
+          volumeMounts:
+            - name: data
+              mountPath: /usr/src/paperless/data
+            - name: media
+              mountPath: /usr/src/paperless/media
+      
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: paperless-data-pvc
+        - name: media
+          persistentVolumeClaim:
+            claimName: paperless-media-pvc

@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: paperless
+  labels:
+    app.kubernetes.io/name: paperless
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: paperless.prod.joris.me
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: paperless
+            port: 
+              name: http
