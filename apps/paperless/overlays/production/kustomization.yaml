@@ -22,3 +22,12 @@ patches:
       - op: replace
         path: /spec/instances
         value: 3
+
+  # Set Dragonfly replicas to 3
+  - target:
+      kind: Dragonfly
+      name: dragonfly
+    patch: |-
+      - op: replace
+        path: /spec/replicas
+        value: 3

@@ -1,0 +1,5 @@
+kind: Kustomization
+
+resources:
+  - dragonfly.yaml
+  - dragonfly-svc.yaml
