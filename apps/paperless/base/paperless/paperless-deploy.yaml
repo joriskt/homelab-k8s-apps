@@ -71,7 +71,7 @@ spec:
       volumes:
         - name: data
           persistentVolumeClaim:
-            claimName: paperless-data-pvc
+            claimName: paperless-data
         - name: media
           persistentVolumeClaim:
-            claimName: paperless-media-pvc
+            claimName: paperless-media
