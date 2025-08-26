@@ -16,11 +16,11 @@ spec:
           image: ghcr.io/9001/copyparty-ac:1.18.4
           resources:
             requests:
-              cpu: "250m"
-              memory: "256Mi"
+              cpu: 250m
+              memory: 256Mi
             limits:
-              memory: "1024Mi"
-              cpu: "2000m"
+              memory: 1Gi
+              cpu: 2000m
           ports:
             - containerPort: 3923
               name: http
