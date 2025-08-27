@@ -21,7 +21,7 @@ spec:
                   app: bookstack
       containers:
       - name: bookstack
-        image: lscr.io/linuxserver/bookstack:25.05.2
+        image: lscr.io/linuxserver/bookstack:25.07.1
         resources:
           requests:
             cpu: 250m
